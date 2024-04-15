@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sentiment Analysis of Social Media Presence</title>
+  {% load static %}
+  <style>
+
+*{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+body{
+  margin: 0;
+}
+.navbar{
+			background: white; font-family: calibri; padding-right: 15px;padding-left: 15px;
+		}
+		.navdiv{
+			display: flex; align-items: center; justify-content: space-between;
+		}
+		.navdiv img{
+			height: 90px;
+          width: 350px;
+		}
+		.nav_btn{
+			background-color: #0E4C92; margin-left: 10px; border-radius: 10px; padding: 14px; width: 105px;height: 50px;
+		}
+		.nav_btn a{
+			color: white; font-weight: bold; font-size: 15px;
+          text-decoration: none;
+		}
+
+</style>
+</head>
+<body style="font-family: 'Noto Serif', serif; background-color: #054871">
+  <nav class="navbar">
+		<div class="navdiv">
+			<img src="{% static '/images/main_logo.jpg' %}" alt="" srcset="" />
+			<ul>
+				<button class="nav_btn"><a href="{% url 'index' %}">LOGIN</a></button>
+				<button class="nav_btn"><a href="{% url 'signup' %}">REGISTER</a></button>
+			</ul>
+		</div>
+	</nav>
+    <div style="
+        display: flex;
+        height: 87vh;
+        justify-content: space-around;
+        align-items: center;
+      " class="container">
+      <div style="margin: auto; background-color:#054871 ;">
+
+          <video  autoplay muted loop width="600" height="500" >
+       <source src="{% static '/images/Sentiment_home.mp4' %}" type="video/mp4">
+       </video>
+      </div>
+
+      <div id="right"
+        style="margin: auto;">
+          <img src="{% static '/images/home_image.png' %}" alt="" srcset=""  width="500"
+        height="500"/>
+      </div>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</Dochtml>
