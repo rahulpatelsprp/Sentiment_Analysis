@@ -1,35 +1,30 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-
 from .models import Users
-
 import smtplib
 import ssl
 from email.message import EmailMessage
 import nltk
 from googletrans import Translator
 import speech_recognition as sr
-import os
 
 from keras.models import load_model
 import pandas as pd
 import numpy as np
+import os
 
 import re
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense,Dropout
+
 
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
 
-
-
 nltk.download('vader_lexicon')
 nltk.download('stopwords')
-
-
 # Create your views here.
 def index(request):
     return render(request, 'login.html')
@@ -60,7 +55,7 @@ def register(request):
         try:
             Login.save()
         except:
-            return HttpResponse('404 error')
+            return render(request, 'error.html')
     return render(request, 'login.html')
 
 
@@ -92,9 +87,9 @@ def send_password(request):
             except:
                 return redirect("home")
 
+
         else:
             return redirect("home")
-
     return redirect("index")
 
 
@@ -109,13 +104,14 @@ def AudioBased(request):
 def TextBased(request):
     return render(request, 'TextBased.html')
 
+def error(request):
+    return render(request, 'error.html')
 
 def ResultAudio(request):
     return HttpResponse('Audio')
-
 def model_training():
     global train_path,ps,cv,data,model1,cv_transformer
-    train_path = pd.read_csv(os.getcwd()+'\\login\\train.csv', encoding='ISO-8859-1',nrows=10000)
+    train_path = pd.read_csv(os.getcwd() +'\\login\\train.csv', encoding='ISO-8859-1', nrows=10000)
     ps = PorterStemmer()
     cv = CountVectorizer()
     train_path = train_path.dropna(subset=['text'])
@@ -130,9 +126,9 @@ def model_training():
         data.append(review)  # for saving the iteration(preprocess data)
     # x = cv.fit_transform(data).toarray()
     # y = cv.fit_transform(train_path['sentiment']).toarray()
-    #
+    
     # X_train,X_test,y_train,y_test = train_test_split(x,y,test_size =0.3,random_state = 42)
-    #
+    
     # model1 = Sequential()
     # model1.add(Dense(5000,activation ='relu'))
     # model1.add(Dense(100, activation='relu'))
