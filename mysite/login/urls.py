@@ -13,6 +13,7 @@ urlpatterns = [
     path('Result/',views.Result,name='Result'),
     path('ResultText/',views.ResultText,name='ResultText'),
     path('ResultAudio/',views.ResultAudio,name='ResultAudio'),
-    path('Listen/',views.listen,name='listen')
+    path('Listen/',views.listen,name='listen'),
+    path('error/',views.error,name='error')
 ]
 
