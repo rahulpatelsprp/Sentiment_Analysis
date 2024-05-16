@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <title>Error 404 - Page Not Found</title>
+    <style>
+      .error-container {
+        text-align: center;
+        margin-top: 140px;
+      }
+      h1 {
+        font-size: 48px;
+        color: #333;
+        margin-bottom: 20px;
+      }
+      p {
+        font-size: 24px;
+        color: #666;
+        margin-bottom: 20px;
+      }
+      a {
+        color: #007bff;
+        text-decoration: none;
+      }
+
+      body {
+        margin: 0;
+      }
+      .navbar {
+        background-color: #054871;
+        font-family: calibri;
+        padding-right: 15px;
+        padding-left: 15px;
+      }
+      .navdiv {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .navdiv img {
+        height: 90px;
+        width: 350px;
+      }
+      .nav_btn {
+        background-color: #0e4c92;
+        margin-left: 10px;
+        border-radius: 10px;
+        padding: 14px;
+        width: 105px;
+        height: 50px;
+      }
+      .nav_btn a {
+        color: white;
+        font-weight: bold;
+        font-size: 15px;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body style="font-family: 'Noto Serif', serif">
+    <nav class="navbar">
+      <div class="navdiv">
+        <img src="{% static '/images/main_logo.jpg' %}" alt="" srcset="" />
+        <ul>
+          <button class="nav_btn"><a href="{% url 'home' %}">HOME</a></button>
+          <button class="nav_btn">
+            <a href="{% url 'register' %}">BACK</a>
+          </button>
+        </ul>
+      </div>
+    </nav>
+    <div class="error-container">
+      <h1>Error 404 - Page Not Found</h1>
+      <p>The page you requested could not be found.</p>
+      <p>
+        Please <a href="{% url 'home' %}">click here</a> to go back to the
+        homepage.
+      </p>
+    </div>
+  </body>
+</html>
